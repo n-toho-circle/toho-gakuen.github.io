@@ -22,6 +22,10 @@ a{
   text-decoration: none;
 }
 
+#screen-work p a {
+  color: #428cf4
+}
+
 header nav{
   position: relative;
 }
