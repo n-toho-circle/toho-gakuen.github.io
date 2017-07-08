@@ -1,71 +1,86 @@
 <html lang="ja">
- 
- 
-<!--
- 　 　 　 　 i＾ヽry/`ヽ、
-　　　　　, '｀ ⌒ ﾞ｀ヽ'
-　　　　　L(ﾉ八ﾉﾉＬi〉
-　　　　 　il､ﾟヮ.ﾟ［i.llλ
-　 　 　 　 ﾉi`ﾑ´」,ﾍﾘ
- 　　　 　 〈/i.Tヽヾ､_〉
-　　　　 　 ﾞ''ｔ_ｧ_ｧ‐゛
- 
--->
- 
   <head>
+   
+ <!--
+    
+    
+    
+     i＾ヽry/`ヽ、
+ , '｀ ⌒ ﾞ｀ヽ'
+ L(ﾉ八ﾉﾉＬi〉
+  il､ﾟヮ.ﾟ［i.llλ
+    ﾉi`ﾑ´」,ﾍﾘ
+   〈/i.Tヽヾ､_〉
+   ﾞ''ｔ_ｧ_ｧ‐゛
+
+  
+  
+-->
+   
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width,initial-scale=1" />
-    <meta content="#fafafa" name="theme-color" />
-    <title>東方同好録</title>
-    <link rel="shortcut icon" href="./favicon.png">
+    <title>Toho club</title>
     <link rel="stylesheet" href="./index.css" />
   </head>
-  
-  <header>
-    <nav id="header-nav">
-      <ul>
-        <li data-screen="#screen-work"><a>概要</a></li>
-        <li data-screen="#screen-schedule"><a target="_blank" href="https://calendar.google.com/calendar/embed?src=nnn.ed.jp_7hmtvd5b798grgg63gj05mpruc%40group.calendar.google.com&ctz=Asia/Tokyo">予定</a></li>
-        <li data-screen="#screen-members"><a>メンバー</a></li>
-        <li data-screen="#screen-gallery"><a>ギャラリー</a></li>
-      </ul>
-    </nav>
-  </header>
-  
   <body>
-    <div id="logo-wrapper" class="logo-wrapper">
-      <img id="logo-image" src="./logo-01.png" alt="LOGO" />
-    </div> 
-    <div id="background-wrapper" class="logo-wrapper">
-      <img id="particles" src="./particles.svg" alt="PARTICLES">
+    
+    <div id="background-image"></div>
+   
+    <header>
+      <div id="hamburger-button"></div>
+      <ul>
+        <a class="header-list-items"><li>トップ</li></a>
+        <a class="header-list-items"><li>概要</li></a>
+        <a class="header-list-items" target="_blank" href="https://calendar.google.com/calendar/embed?src=nnn.ed.jp_7hmtvd5b798grgg63gj05mpruc%40group.calendar.google.com&ctz=Asia/Tokyo"><li>予定</li></a>
+        <a class="header-list-items"><li>代表</li></a>
+        <a class="header-list-items"><li>ティザー</li></a>
+      </ul>
+    </header>
+    
+    <div id="parallax-container">
+      <div class="parallax-item" id="parallax-particles"></div>
+      <div class="parallax-item" id="parallax-logo"></div>
     </div>
     
-    <div id="btn-mute"></div>
-    
-    <div id="screen-work" class="screen">
+    <div id="container-profile" class="containers">
       <h1>活動内容</h1>
-      <p>東方Projectの絵を書いたりしています！
-      最近はフランちゃんにハマっています！
-      たーのしー！
+      <p>
+      とある通信制高校の同好会から発足した東方Projectサークルです！
+      同好会では、みんなで東方キャラのイラストを描いたり、
+      原作をプレイしたりして遊んでいます！
+      同好会で「同人誌即売会とかのイベントに参加してみたいねー」という話が持ち上がり
+      サークルを立ち上げる運びとなりました！
+      高校生が集まったサークルですが、みんなで一生懸命がんばっていきますので、
+      応援よろしくおねがします！！
       </p>
       <h1>Twitter</h1>
       <p>最近はTwitterで活発に活動しています！
-      Twitterのフォローもよろしくね！
-      </p>
-      <h1>ギャラリー</h1>
-      <p>絵の他にも切り絵などでを頑張っています！
-      作品はギャラリーページに載っています！
-      </p>
-      <h1>音楽</h1>
-      <p>現在N高校音楽部EDM班による東方曲コラボを企画しています！
-      完成次第、BGMとしてこのページに流す予定となっています！
+      サークルのTwitterはこちら → <a href="https://twitter.com/gakuen_toho" target="_blank">@gakuen_toho</a>
       </p>
       <h1>予定</h1>
       <p>東方関連のイベントを予定表にしてまとめました！(非公式)
       すべてを拾いきれているわけでは無いのでご容赦ください...
-      </p>
+    </div>
+    <div id="container-members" class="containers">
+      <h1>MK</h1>
+      <p>サークル代表のえむけーと申します！よろしくおねがいします！！椛が大好きです！</p>
+      <h1>リナ・スカーレット</h1>
+      <p>サークル副会長のリナ・スカーレットと申します！フランちゃんが大好きです！主にイラストを描いたりグッズを作ったりしてます！</p>
+      <h1>Judgement</h1>
+      <p>副会長のjudgmentです。創作活動は切り絵をメインでやってます。切り絵出来そうなイラストをもらうと喜びます。</p>
+    </div>
+    <div id="container-teaser" class="containers">
+      <h1>近日公開</h1>
     </div>
     
+    <div id="sidebar-menu">
+      <h1 id="sidebar-title">メニュー</h1>
+      <div class="sidebar-items">トップ</div>
+      <div class="sidebar-items">概要</div>
+      <a target="_blank" href="https://calendar.google.com/calendar/embed?src=nnn.ed.jp_7hmtvd5b798grgg63gj05mpruc%40group.calendar.google.com&ctz=Asia/Tokyo"><div class="sidebar-items">予定</div></a>
+      <div class="sidebar-items">代表</div>
+      <div class="sidebar-items">ティザー</div>
+    </div>
     <script src="./jquery-1.12.4.min.js"></script>
     <script src="./index.js"></script>
   </body>

@@ -1,71 +1,69 @@
-$(window).load(function(){
+$(function(){
+  const $headerListItems = $(".header-list-items"),
+        $containers = $(".containers"),
+        $parallaxLogo = $("#parallax-logo"),
+        $parallaxParticle = $("#parallax-particles"),
+        $hamburger = $("#hamburger-button"),
+        $sidebar = $("#sidebar-menu"),
+        $sidebarItems = $(".sidebar-items"),
+        $parallaxContainer = $("#parallax-container"),
+        $background = $("#background-image");
   
-  var $logo = $("#logo-image"),
-      screenWidth = $(window).width() / 2,
-      screenHeight = $(window).height() / 2,
-      mousePosX = 0,
-      mousePosY = 0,
-      bgm = new Audio(),
-      currentVolume = 0.4;
+  let $screenSizeX = $(window).width() / 2,
+      $screenSizeY = $(window).height() / 2;
   
-  bgm.src = "./music.mp3";
-  bgm.volume = 0.4;
-  bgm.play();
+  $sidebarItems.click(function(){
+    $containers.removeClass("visible");
+    console.log($sidebarItems.index(this));
+    $hamburger.removeClass("open");
+    $sidebar.removeClass("view");
+    $parallaxContainer.removeClass("dark");
+    $background.removeClass("dark");
+    switch($sidebarItems.index(this)){
+      case 1:
+        $("#container-profile").addClass("visible");
+        break;
+      case 3:
+        $("#container-members").addClass("visible");
+        break;
+      case 4:
+        $("#container-teaser").addClass("visible");
+        break;
+    };
+  });
   
-//  画面サイズ変更時
+  $headerListItems.click(function(){
+    $containers.removeClass("visible");
+    console.log($headerListItems.index(this));
+    switch($headerListItems.index(this)){
+      case 1:
+        $("#container-profile").addClass("visible");
+        break;
+      case 3:
+        $("#container-members").addClass("visible");
+        break;
+      case 4:
+        $("#container-teaser").addClass("visible");
+        break;
+    };
+  });
+  
+  $hamburger.click(function(){
+    $(this).toggleClass("open");
+    $sidebar.toggleClass("view");
+    $parallaxContainer.toggleClass("dark");
+    $background.toggleClass("dark");
+  });
   
   $(window).resize(function(){
-    console.log("resized");
-    screenWidth = $(window).width() / 2;
-    screenHeight = $(window).height() / 2;
+    $screenSizeX = $(window).width() / 2;
+    $screenSizeY = $(window).height() / 2;
+    console.log($screenSizeX, $screenSizeY);
   });
-  
-//  マウス移動時処理
   
   $(window).mousemove(function(e){
-    mousePosX = (e.screenX - screenWidth);
-    mousePosY = (e.screenY - screenHeight);
-    $("#logo-wrapper").css("transform", "translate(" + (mousePosX / 50) + "px," + (mousePosY / 50) + "px)");
-    $("#background-wrapper").css("transform", "translate(" + (mousePosX / 20) + "px," + (mousePosY / 20) + "px)");
+    $parallaxLogo.css("transform", "translate(" + (e.screenX - $screenSizeX) / 20 + "px," + (e.screenY - $screenSizeY) / 15 + "px)");
+    $parallaxParticle.css("transform", "translate(" + (e.screenX - $screenSizeX) / 10 + "px," + (e.screenY - $screenSizeY) / 10 + "px)");
   });
   
-  $("#header-nav").find("li").click(function(){
-    $($(this).data("screen")).toggleClass("screen-visible");
-    $("li").removeClass("selected");
-    $(this).addClass("selected");
-  });
-  
-  $("#btn-mute").click(function(){
-    $(this).addClass("animating");
-    $(this).toggleClass("muted");
-    if($(this).hasClass("muted")){
-      audioFadeOut();
-    }else{
-      audioFadeIn();
-    };
-  });
-
-  function audioFadeIn(){
-    console.log(bgm.volume);
-    if(currentVolume >= 0.4){
-      $("#btn-mute").removeClass("animating");
-      cancelAnimationFrame(audioFadeIn);
-    }else{
-      currentVolume += 0.01;
-      bgm.volume = currentVolume.toFixed(2);
-      requestAnimationFrame(audioFadeIn);
-    };
-  };
-  
-  function audioFadeOut(){
-    console.log(bgm.volume);
-    if(currentVolume <= 0){
-      $("#btn-mute").removeClass("animating");
-      cancelAnimationFrame(audioFadeOut);
-    }else{
-      currentVolume -= 0.01;
-      bgm.volume = currentVolume.toFixed(2);
-      requestAnimationFrame(audioFadeOut);  
-    };
-  };
 });
