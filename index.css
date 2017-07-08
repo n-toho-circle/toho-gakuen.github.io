@@ -39,6 +39,9 @@ a{
 p{
   font-size: 1.2em;
 }
+#container-profile p a{
+  color: #428cf4 !important;
+}
 
 #background-image{
   position: absolute;
